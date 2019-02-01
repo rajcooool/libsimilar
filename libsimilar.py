@@ -81,8 +81,15 @@ def main_func():
 	print("\ndk Index\n",dk.index.values)
 	print("\nMatrix\n",matrix)
 	dk[:] = matrix
+	dkind = matrix.argsort()[::-1]
 	dk.columns = dk.index.values
 	print("\ndk + matrix\n",dk)
+
+	# take a row of recomendations for 1 title
+	recommended_row = dk.loc[[780529]]
+
+	# print an sorted list of most recommended titls
+	print("\nmost recommended titles for 1 title\n",recommended_row.T.sort_values(by=780529, ascending=False))
 
 main_func()
 
